@@ -4,7 +4,8 @@
   "description": "",
   "main": "sum.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint.js"
   },
   "repository": {
     "type": "git",
