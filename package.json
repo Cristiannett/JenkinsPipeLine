@@ -1,15 +1,14 @@
 {
-  "name": "github-actions.-workflow-inicial",
+  "name": "Jenkins_Pipeline de un proyecto de nodejs",
   "version": "1.0.0",
   "description": "",
   "main": "sum.js",
   "scripts": {
-    "test": "jest",
-    "lint": "eslint.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cristiannett/githubActions_examples.git"
+    "url": "git+https://github.com/Cristiannett/JenkinsPipeLine/tree/node_project"
   },
   "keywords": [],
   "author": "",
