@@ -4,7 +4,8 @@
   "description": "",
   "main": "sum.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext=.jsx,.js,.tsx,.ts"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/Cristiannett/githubActions_examples/issues"
   },
-  "homepage": "https://github.com/Cristiannett/githubActions_examples#readme"
+  "homepage": "https://github.com/Cristiannett/githubActions_examples#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jest": "^29.4.1"
+  }
 }
