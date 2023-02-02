@@ -13,7 +13,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                bat 'npm run index.js'
+                bat './index.js'
             }
         }
     }
