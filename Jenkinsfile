@@ -1,9 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage("build") {
+        stage('linter') {
             steps {
-                echo "Hola Mundo"
+                sh 'npm run lint'
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+        stage('deploy') {
+            steps {
+                sh './deploy.sh'
             }
         }
     }
