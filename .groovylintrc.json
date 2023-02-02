@@ -6,6 +6,9 @@
         },
         "SpaceAfterClosingBrace": {
             "enabled": false
+        },
+        "UnnecessaryGString": {
+            "enabled": false
         }
     }
 }
