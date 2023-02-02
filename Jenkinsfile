@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        node'node'
+    }
     stages {
         stage('linter') {
             steps {
