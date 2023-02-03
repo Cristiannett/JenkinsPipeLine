@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('execution') {
             steps {
-                bat 'node index.js Pedro'
+                bat 'node index.js ${params.persona_a_saludar}'
             }
         }
     }
