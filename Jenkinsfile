@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('execution') {
             steps {
-                bat 'node index.js ${params.persona_a_saludar} > index.js'
+                bat 'node index.js ${parameters.persona_a_saludar}'
             }
         }
     }
