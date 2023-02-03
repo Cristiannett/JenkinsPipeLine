@@ -1,8 +1,10 @@
 pipeline {
     agent any
-    input {
-        parameters {
-            string(name: 'persona_a_saludar', defaultValue: '', description: 'Persona a saludar')
+    stage('Build') {
+        input {
+            parameters {
+                string(name: 'persona_a_saludar', defaultValue: '', description: 'Persona a saludar')
+            }
         }
     }
     stages {
