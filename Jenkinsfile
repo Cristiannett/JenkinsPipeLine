@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('execution') {
             steps {
-                bat 'node index.js ${Paco}'
+                bat 'node index.js Paca'
             }
         }
     }
