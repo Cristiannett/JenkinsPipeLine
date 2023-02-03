@@ -6,8 +6,7 @@ pipeline {
     stages {
         stage('execution') {
             steps {
-                /* bat 'node index.js ${params.persona_a_saludar}' */
-                bat "echo Hola amig@ '${params.persona_a_saludar}'"
+                bat 'npm index.js ${params.persona_a_saludar}'
             }
         }
     }
