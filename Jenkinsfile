@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('execution') {
             steps {
-                bat 'node index.js '${ params.persona_a_saludar }''
-                
+                /* bat 'node index.js ${params.persona_a_saludar}' */
+                bat "echo \"const persona_a_saludar = '${params.persona_a_saludar}';\" > index.js"
             }
         }
     }
