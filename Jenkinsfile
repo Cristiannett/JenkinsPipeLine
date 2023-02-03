@@ -1,19 +1,11 @@
 pipeline {
-    agent any
+    parameters {
+        string(name: 'persona_a_saludar', defaultValue: '', description: 'Persona a saludar')
+    }
     stages {
-        stage("build") {
+        stage('execution') {
             steps {
-                echo "Ejecutando Build"
-            }
-        }
-        stage("test") {
-            steps {
-                echo "Ejecutando test"
-            }
-        }
-        stage("deploy") {
-            steps {
-                echo "Ejecutando deploy"
+                bat 'node index.js ${params.persona_a_saludar}'
             }
         }
     }
