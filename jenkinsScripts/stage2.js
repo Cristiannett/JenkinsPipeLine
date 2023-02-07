@@ -1,6 +1,6 @@
-const script2Param = process.argv[3];
+const script2Param = process.argv[2];
 
-if (script2Param == "daVinci") {
+if (script2Param === "pero") {
     console.log("success");
     process.exit(0);
 } else {
