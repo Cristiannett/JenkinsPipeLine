@@ -15,20 +15,21 @@ pipeline {
         stage('Stage 1') {
             steps {
                 bat(script: './jenkinsScripts/stage1.bat', returnStdout: true) {
-                    env.stage1Result = returnStdout
+                    env.result1 = returnStdout
                 }
             }
         }
         stage('Stage 2') {
             steps {
                 bat(script: './jenkinsScripts/stage2.bat', returnStdout: true) {
-                    env.stage2Result = returnStdout
+                    env.result2 = returnStdout
                 }
             }
         }
         stage('Stage 3') {
             steps {
                 bat(script: './jenkinsScripts/stage3.bat', returnStdout: true)
+                echo returnStdout
             }
         }
     }
