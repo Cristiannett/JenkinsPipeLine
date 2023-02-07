@@ -20,7 +20,7 @@ pipeline {
                         label 'for-branch-a'
                     }
                     steps {
-                        echo bat "node index.js ${params.persona_a_saludar} desde la rama A"
+                        bat "node index.js ${params.persona_a_saludar} desde la rama A"
                     }
                 }
                 stage('Branch B') {
