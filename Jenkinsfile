@@ -12,23 +12,23 @@ pipeline {
         result2 = ''
     }
     stages {
-        stage('Stage 1') {
+        stage("Stage 1") {
             steps {
-                bat(script: './jenkinsScripts/stage1.bat', returnStdout: true) {
+                bat(script: "./jenkinsScripts/stage1.bat", returnStdout: true) {
                     env.result1 = returnStdout
                 }
             }
         }
-        stage('Stage 2') {
+        stage("Stage 2") {
             steps {
-                bat(script: './jenkinsScripts/stage2.bat', returnStdout: true) {
+                bat(script: "./jenkinsScripts/stage2.bat", returnStdout: true) {
                     env.result2 = returnStdout
                 }
             }
         }
-        stage('Stage 3') {
+        stage("Stage 3") {
             steps {
-                bat(script: './jenkinsScripts/stage3.bat', returnStdout: true)
+                bat(script: "./jenkinsScripts/stage3.bat", returnStdout: true)
                 echo returnStdout
             }
         }
