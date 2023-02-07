@@ -8,8 +8,8 @@ pipeline {
         string(name: 'surname', defaultValue: '', description: 'Cual es el apellido del pintor de la Mona Lisa?')
     }
     environment {
-        script1Result = ''
-        script2Result = ''
+        stage1Result = ''
+        stage2Result = ''
     }
     stages {
         stage('Ejecutar script 1') {
