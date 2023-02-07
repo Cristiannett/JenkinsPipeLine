@@ -4,30 +4,40 @@ pipeline {
         nodejs 'node'
     }
     parameters {
-        string(name: 'persona_a_saludar', defaultValue: '', description: 'Persona a saludar')
+        string(name: 'name', defaultValue: '', description: 'Cual es el nombre del pintor de la Mona Lisa')
+        string(name: 'surname', defaultValue: '', description: 'Cual es el apellido del pintor de la Mona Lisa?')
+    }
+    environment {
+        script1Result = ''
+        script2Result = ''
     }
     triggers {
         pollSCM('H */4 * * 1-5')
     }
     stages {
-        stage('Non-Parallel Stage') {
+        stage('Stage1') {
             steps {
-                bat "node index.js ${params.persona_a_saludar}"
+                script {
+                    script1Result = bat(script: "./jenkinsScripts/stage1.js ${params.name}", returnStdout: true).trim()
+                }
             }
         }
-        stage('Parallel Stage') {
-            failFast true
-            parallel {
-                stage('Branch A') {
-                    agent any
-                    steps {
-                        bat "node index.js ${params.persona_a_saludar} desde la rama A"
-                    }
+        stage('Stage2') {
+            steps {
+                script {
+                    script2Result = bat(script: "./jenkinsScripts/stage2.js ${params.surname}", returnStdout: true).trim()
                 }
-                stage('Branch B') {
-                    agent any
-                    steps {
-                        bat "node index.js ${params.persona_a_saludar} desde la rama B"
+            }
+        }
+        stage('Stage3') {
+            steps {
+                script {
+                    if (script1Result == 'correcto' && script2Result == 'correcto') {
+                        echo 'El proyecto va viento en popa!!!'
+          } else if (script1Result == 'incorrecto' || script2Result == 'incorrecto') {
+                        echo 'Alguna de las dos stages ha fallado'
+          } else {
+                        echo 'Esto pinta muy mal'
                     }
                 }
             }
