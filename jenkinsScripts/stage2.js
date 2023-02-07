@@ -1,4 +1,4 @@
-const script2Param = process.argv[2];
+const script2Param = process.argv[3];
 
 if (script2Param == "daVinci") {
     console.log("success");
