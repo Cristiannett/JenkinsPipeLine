@@ -1,7 +1,7 @@
 stage2.bat:
 @echo off
 if "%param2%" == "daVinci" (
-    echo success
+    exit 0
 ) else (
-    echo failure
+    exit 1
 )
