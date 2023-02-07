@@ -8,33 +8,29 @@ pipeline {
         string(name: 'surname', defaultValue: '', description: 'Cual es el apellido del pintor de la Mona Lisa?')
     }
     environment {
-        result1 = ''
-        result2 = ''
+        script1Result = ''
+        script2Result = ''
     }
     stages {
-        stage("Stage 1") {
+        stage("Ejecutar Script 1") {
             steps {
-                bat(script: "./jenkinsScripts/stage1.bat", returnStdout: true) {
-                    steps{
-                        env.result1 = returnStdout
-                    }
-                    
+                bat "node jenkinsScripts/stage1.js ${params.name}"
+                script {
+                    script1Result = sh(returnStdout: true, script: 'echo $?').trim()
                 }
             }
         }
-        stage("Stage 2") {
+        stage("Ejecutar Script 2") {
             steps {
-                bat(script: "./jenkinsScripts/stage2.bat", returnStdout: true) {
-                    steps{
-                        env.result2 = returnStdout
-                    }
+                bat "node jenkinsScripts/stage2.js ${params.surname}"
+                script {
+                    script2Result = sh(returnStdout: true, script: 'echo $?').trim()
                 }
             }
         }
-        stage("Stage 3") {
+        stage("Imprimir Resultado") {
             steps {
-                bat(script: "./jenkinsScripts/stage3.bat", returnStdout: true)
-                echo returnStdout
+                bat "node jenkinsScripts/stage3.js ${script1Result} ${script2Result}"
             }
         }
     }
