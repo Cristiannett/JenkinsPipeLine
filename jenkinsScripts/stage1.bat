@@ -1,9 +1,7 @@
 @echo off
 
-set input=%1
-
-if "%input%" == "Leonardo" (
-  echo correcto
+if "%1" == "correct" (
+   echo success
 ) else (
-  echo incorrecto
+   echo fail
 )
