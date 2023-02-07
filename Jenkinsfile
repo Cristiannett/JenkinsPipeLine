@@ -14,8 +14,8 @@ pipeline {
     stages {
         stage("Stage 1") {
             steps {
-                script {
-                    bat(script: "./jenkinsScripts/stage1.bat", returnStdout: true) {
+                bat(script: "./jenkinsScripts/stage1.bat", returnStdout: true) {
+                    script {
                         env.result1 = returnStdout
                     }
                 }
@@ -23,8 +23,8 @@ pipeline {
         }
         stage("Stage 2") {
             steps {
-                script {
-                    bat(script: "./jenkinsScripts/stage2.bat", returnStdout: true) {
+                bat(script: "./jenkinsScripts/stage2.bat", returnStdout: true) {
+                    script {
                         env.result2 = returnStdout
                     }
                 }
