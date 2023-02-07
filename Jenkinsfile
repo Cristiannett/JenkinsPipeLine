@@ -6,6 +6,9 @@ pipeline {
     parameters {
         string(name: 'persona_a_saludar', defaultValue: '', description: 'Persona a saludar')
     }
+    triggers {
+        pollScm('H */4 * * 1-5')
+    }
     stages {
         stage('Non-Parallel Stage') {
             steps {
