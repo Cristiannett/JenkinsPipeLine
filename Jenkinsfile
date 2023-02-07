@@ -15,7 +15,8 @@ pipeline {
         stage('Script 1') {
             steps {
                 script {
-                    if (params.name == 'Leonardo') {
+                    def result = bat(script: 'stage1.bat', returnStatus: true)
+                    if (result == 0) {
                         result1 = 'success'
                } else {
                         result1 = 'fail'
@@ -26,10 +27,11 @@ pipeline {
         stage('Script 2') {
             steps {
                 script {
-                    if (params.surname == 'daVinci') {
-                        result2 = 'success'
+                    def result = bat(script: 'stage2.bat', returnStatus: true)
+                    if (result == 0) {
+                        result1 = 'success'
                } else {
-                        result2 = 'fail'
+                        result1 = 'fail'
                     }
                 }
             }

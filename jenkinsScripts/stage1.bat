@@ -1,7 +1,7 @@
 @echo off
 
-if "%1" == "correct" (
-   echo success
+if "%1" == "Leonardo" (
+   exit 0
 ) else (
-   echo fail
+   exit 1 
 )
