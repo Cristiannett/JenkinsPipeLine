@@ -12,15 +12,15 @@ pipeline {
         STAGE2_RESULT = ''
     }
     stages {
-        stage('Stage 1') {
+        stage("Stage 1") {
             steps {
-                bat 'jenkinsScripts\\stage1.js $name'
+                bat "jenkinsScripts\\stage1.js $name"
                 env.STAGE1_RESULT = bat(returnStdout: true, script: 'echo %errorlevel%').trim()
             }
         }
         stage('Stage 2') {
             steps {
-                bat 'jenkinsScripts\\stage2.js $surname'
+                bat "jenkinsScripts\\stage2.js $surname"
                 env.STAGE2_RESULT = bat(returnStdout: true, script: 'echo %errorlevel%').trim()
             }
         }
