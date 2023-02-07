@@ -15,16 +15,17 @@ pipeline {
         stage("Stage 1") {
             steps {
                 bat(script: "./jenkinsScripts/stage1.bat", returnStdout: true) {
-                    script {
+                    steps{
                         env.result1 = returnStdout
                     }
+                    
                 }
             }
         }
         stage("Stage 2") {
             steps {
                 bat(script: "./jenkinsScripts/stage2.bat", returnStdout: true) {
-                    script {
+                    steps{
                         env.result2 = returnStdout
                     }
                 }
