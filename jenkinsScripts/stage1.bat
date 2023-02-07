@@ -1,7 +1,7 @@
 stage1.bat:
 @echo off
 if "%param1%" == "Leonardo" (
-    exit 0
+    echo success
 ) else (
-    exit 1
+    echo failure
 )
