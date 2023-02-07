@@ -6,7 +6,7 @@ pipeline {
     parameters {
         string(name: 'persona_a_saludar', defaultValue: '', description: 'Persona a saludar')
     }
-    stages {
+    stage {
         failFast true
             parallel {
                 stage('Branch A') {
