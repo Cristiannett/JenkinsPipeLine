@@ -15,7 +15,7 @@ pipeline {
         stage('Script 1') {
             steps {
                 script {
-                    def result = bat(script: './jenkinsScripts/stage1.bat', returnStatus: true)
+                    def result = bat(script: "./jenkinsScripts/stage1.bat ${params.name}", returnStatus: true)
                     if (result == 0) {
                         result1 = 'success'
                } else {
@@ -27,7 +27,7 @@ pipeline {
         stage('Script 2') {
             steps {
                 script {
-                    def result = bat(script: './jenkinsScripts/stage2.bat', returnStatus: true)
+                    def result = bat(script: "./jenkinsScripts/stage2.bat ${params.surname}", returnStatus: true)
                     if (result == 0) {
                         result1 = 'success'
                } else {
