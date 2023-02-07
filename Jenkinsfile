@@ -16,17 +16,13 @@ pipeline {
             failFast true
             parallel {
                 stage('Branch A') {
-                    agent {
-                        label 'for-branch-a'
-                    }
+                    agent any
                     steps {
                         bat "node index.js ${params.persona_a_saludar} desde la rama A"
                     }
                 }
                 stage('Branch B') {
-                    agent {
-                        label 'for-branch-b'
-                    }
+                    agent any
                     steps {
                         bat "node index.js ${params.persona_a_saludar} desde la rama B"
                     }
