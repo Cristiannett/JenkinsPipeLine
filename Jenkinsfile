@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage("Ejecutar Script 1") {
             steps {
-                bat "node jenkinsScripts/stage1.js "${ params.script1Param }""
+                bat "node jenkinsScripts/stage1.js "${ params.name }""
                 script {
                     script1Result = bat(returnStdout: true, script: 'echo $?').trim()
                 }
@@ -22,7 +22,7 @@ pipeline {
         }
         stage("Ejecutar Script 2") {
             steps {
-                bat "node jenkinsScripts/stage2.js "${ params.script2Param }""
+                bat "node jenkinsScripts/stage2.js "${ params.surname }""
                 script {
                     script2Result = bat(returnStdout: true, script: 'echo $?').trim()
                 }
