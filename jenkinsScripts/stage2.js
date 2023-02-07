@@ -1,6 +1,6 @@
-const apellido = process.argv[2];
+const apellido = process.argv[3];
 
-if (apellido === "da Vinci") {
+if (apellido == "daVinci") {
     return "correcto"
 } else {
     return "incorrecto"
