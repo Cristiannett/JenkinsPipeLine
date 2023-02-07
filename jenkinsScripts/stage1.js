@@ -1,8 +1,9 @@
-const parameter = process.argv[2];
-if (parameter === 'leonardo') {
-    console.log('Stage 1 Successful');
+const script1Param = process.argv[2];
+
+if (script1Param === "leonardo") {
+    console.log("success");
     process.exit(0);
 } else {
-    console.error('Stage 1 Failed');
+    console.log("failure");
     process.exit(1);
 }
