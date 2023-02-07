@@ -18,14 +18,14 @@ pipeline {
         stage('Stage1') {
             steps {
                 script {
-                    script1Result = bat (script: "./jenkinsScripts/stage1.bat ${params.name}", returnStdout: true).trim()
+                    script1Result = bat(script: "./jenkinsScripts/stage1.bat ${params.name}", returnStdout: true).trim()
                 }
             }
         }
         stage('Stage2') {
             steps {
                 script {
-                    script2Result = bat (script: "./jenkinsScripts/stage2.bat ${params.surname}", returnStdout: true).trim()
+                    script2Result = bat(script: "./jenkinsScripts/stage2.bat ${params.surname}", returnStdout: true).trim()
                 }
             }
         }

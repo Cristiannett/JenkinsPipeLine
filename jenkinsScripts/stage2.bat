@@ -1,6 +1,6 @@
 @echo off
 
-set input=%2
+set input=%1
 
 if "%input%" == "daVinci" (
   echo correcto
