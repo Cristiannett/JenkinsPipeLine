@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Non-Parallel Stage') {
             steps {
-                echo 'This stage will be executed first.'
+                bat "node index.js ${params.persona_a_saludar}"
             }
         }
         stage('Parallel Stage') {
