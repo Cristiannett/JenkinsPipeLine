@@ -1,9 +1,8 @@
-const script2Param = process.argv[2];
-
-if (script2Param === "davinci") {
-    console.log("success");
+const parameter = process.argv[2];
+if (parameter === 'davinci') {
+    console.log('Stage 2 Successful');
     process.exit(0);
 } else {
-    console.log("failure");
+    console.error('Stage 2 Failed');
     process.exit(1);
 }
