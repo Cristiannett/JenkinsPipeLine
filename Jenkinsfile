@@ -15,7 +15,7 @@ pipeline {
         stage('Ejecutar script 1') {
             steps {
                 script {
-                    def result = bat(script: "node jenkinsScripts/stage1.js ${param.name}", returnStdout: true).trim()
+                    def result = bat(script: "node jenkinsScripts/stage1.js ${params.name}", returnStdout: true).trim()
                     if (result == "correct") {
                         stage1Result = "correct"
                     } else {
@@ -27,7 +27,7 @@ pipeline {
         stage('Ejecutar script 2') {
             steps {
                 script {
-                    def result = bat(script: "node jenkinsScripts/stage2.js ${param.surname}", returnStdout: true).trim()
+                    def result = bat(script: "node jenkinsScripts/stage2.js ${params.surname}", returnStdout: true).trim()
                     if (result == "correct") {
                         stage2Result = "correct"
                     } else {
