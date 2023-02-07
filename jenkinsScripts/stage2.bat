@@ -1,6 +1,6 @@
 @echo off
 
-if "%1" == "daVinci" (
+if "%2" == "daVinci" (
    echo Respuesta Correcta
    exit 0
 ) else (
