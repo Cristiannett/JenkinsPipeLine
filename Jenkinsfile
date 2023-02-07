@@ -12,25 +12,41 @@ pipeline {
         script2Result = ''
     }
     stages {
-        stage("Ejecutar Script 1") {
+        stage('Ejecutar script 1') {
             steps {
-                bat "node jenkinsScripts/stage1.js "${ params.name }""
                 script {
-                    script1Result = bat(returnStdout: true, script: 'echo $?').trim()
+                    def result = bat(script: "node jenkinsScripts/script1.js %param1%", returnStdout: true).trim()
+                    if (result == "correct") {
+                        stage1Result = "correct"
+                    } else {
+                        stage1Result = "incorrect"
+                    }
                 }
             }
         }
-        stage("Ejecutar Script 2") {
+        stage('Ejecutar script 2') {
             steps {
-                bat "node jenkinsScripts/stage2.js "${ params.surname }""
                 script {
-                    script2Result = bat(returnStdout: true, script: 'echo $?').trim()
+                    def result = bat(script: "node jenkinsScripts/script2.js %param2%", returnStdout: true).trim()
+                    if (result == "correct") {
+                        stage2Result = "correct"
+                    } else {
+                        stage2Result = "incorrect"
+                    }
                 }
             }
         }
-        stage("Imprimir Resultado") {
+        stage('Resultado final') {
             steps {
-                sh "node jenkinsScripts/stage3.js ${script1Result} ${script2Result}"
+                script {
+                    if (stage1Result == "correct" && stage2Result == "correct") {
+                        echo "El proyecto va viento en popa!!!"
+                    } else if (stage1Result == "incorrect" && stage2Result == "incorrect") {
+                        echo "Esto pinta muy mal"
+                    } else {
+                        echo "Alguna de las dos stages ha fallado"
+                    }
+                }
             }
         }
     }
