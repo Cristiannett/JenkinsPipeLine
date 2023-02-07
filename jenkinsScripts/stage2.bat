@@ -1,9 +1,7 @@
+stage2.bat:
 @echo off
-
-if "%2" == "daVinci" (
-   echo Respuesta Correcta
-   exit 0
+if "%param2%" == "daVinci" (
+    echo success
 ) else (
-    echo Respuesta InCorrecta
-   exit 1 
+    echo failure
 )

@@ -1,9 +1,7 @@
+stage1.bat:
 @echo off
-
-if "%1" == "Leonardo" (
-    echo Respuesta Correcta
-   exit 0
+if "%param1%" == "Leonardo" (
+    echo success
 ) else (
-    echo Respuesta InCorrecta
-   exit 1 
+    echo failure
 )

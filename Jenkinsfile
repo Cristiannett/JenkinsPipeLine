@@ -12,41 +12,23 @@ pipeline {
         result2 = ''
     }
     stages {
-        stage('Script 1') {
+        stage('Stage 1') {
             steps {
-                script {
-                    def result = bat(script: "./jenkinsScripts/stage1.bat ${params.name}", returnStatus: true)
-                    if (result == 0) {
-                        result1 = 'success'
-               } else {
-                        result1 = 'fail'
-                    }
+                bat(script: './jenkinsScripts/stage1.bat', returnStdout: true) {
+                    env.stage1Result = returnStdout
                 }
             }
         }
-        stage('Script 2') {
+        stage('Stage 2') {
             steps {
-                script {
-                    def result = bat(script: "./jenkinsScripts/stage2.bat ${params.surname}", returnStatus: true)
-                    if (result == 0) {
-                        result1 = 'success'
-               } else {
-                        result1 = 'fail'
-                    }
+                bat(script: './jenkinsScripts/stage2.bat', returnStdout: true) {
+                    env.stage2Result = returnStdout
                 }
             }
         }
-        stage('Print Results') {
+        stage('Stage 3') {
             steps {
-                script {
-                    if (result1 == 'success' && result2 == 'success') {
-                        println 'El proyecto va viento en popa!!!'
-               } else if (result1 == 'fail' || result2 == 'fail') {
-                        println 'Alguna de las dos stages ha fallado'
-               } else {
-                        println 'Esto pinta muy mal'
-                    }
-                }
+                bat(script: './jenkinsScripts/stage3.bat', returnStdout: true)
             }
         }
     }
